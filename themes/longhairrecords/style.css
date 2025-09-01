@@ -1,0 +1,20 @@
+/*
+ Theme Name:   Longhair Records
+ Theme URI:    https://www.longhairrecords.com
+ Description:  Divi child theme for the Long Hair Records website.
+ Author:       Richard Bakos @ Resonance Designs
+ Author URI:   http://resonance-designs.com
+ Template:     Divi
+ Version:      1.0.0
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout
+ Text Domain:  longhairrecords
+*/
+
+/* Theme customization starts here
+-------------------------------------------------------------- */
+
+/* Third-party CSS */
+@import url("css/staff.css");
+
+/* Custom CSS */
+@import url("css/custom.css");

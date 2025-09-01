@@ -186,8 +186,14 @@ class Product_Import extends Stepped_Job {
 			 */
 			$data = apply_filters( 'woocommerce_square_create_product_data', $data, $catalog_object, $this );
 
-			// set default type
-			$data['type'] = ! empty( $data['type'] ) ? $data['type'] : 'simple';
+            // Skip importing if all tracked variations are zero at this location (untracked allowed)
+            if ( ! $this->lhr_should_import_item( $catalog_object ) ) {
+                $skipped_products[ $item_id ] = null; 
+                continue;
+            }
+
+            // set default type
+            $data['type'] = ! empty( $data['type'] ) ? $data['type'] : 'simple';
 
 			// if an item matches an existing product, update the product using data from Square
 			if ( $product ) {
@@ -1219,6 +1225,84 @@ class Product_Import extends Stepped_Job {
 
 		return $taxonomy;
 	}
+
+    /**
+     * Determines if an item should be imported based on stock for current location.
+     * - Allows import if any present variation is untracked
+     * - Otherwise, requires at least one tracked variation to have qty > 0
+     */
+    protected function lhr_should_import_item( \Square\Models\CatalogObject $catalog_object ) {
+        try {
+            $location_id = wc_square()->get_settings_handler()->get_location_id();
+            $variations  = $catalog_object->getItemData()->getVariations() ?: array();
+            if ( empty( $variations ) ) {
+                return true; // nothing to evaluate
+            }
+
+            $any_untracked = false;
+            $tracked_ids   = array();
+
+            foreach ( $variations as $variation ) {
+                if ( ! ( $variation instanceof \Square\Models\CatalogObject ) || ! $variation->getItemVariationData() ) {
+                    continue;
+                }
+
+                // Respect location availability.
+                if ( is_array( $variation->getAbsentAtLocationIds() ) && in_array( $location_id, $variation->getAbsentAtLocationIds(), true ) ) {
+                    continue;
+                }
+                if ( ! $variation->getPresentAtAllLocations()
+                    && ( ! is_array( $variation->getPresentAtLocationIds() )
+                    || ! in_array( $location_id, $variation->getPresentAtLocationIds(), true ) ) ) {
+                    continue;
+                }
+
+                // Determine tracking with per-location overrides.
+                $track_inventory = $variation->getItemVariationData()->getTrackInventory();
+                $overrides       = $variation->getItemVariationData()->getLocationOverrides();
+                if ( is_array( $overrides ) && ! empty( $overrides ) ) {
+                    foreach ( $overrides as $override ) {
+                        if ( $override->getLocationId() === $location_id && null !== $override->getTrackInventory() ) {
+                            $track_inventory = $override->getTrackInventory();
+                            break;
+                        }
+                    }
+                }
+
+                if ( ! $track_inventory ) {
+                    $any_untracked = true; // allow untracked items
+                } else {
+                    $tracked_ids[] = $variation->getId();
+                }
+            }
+
+            if ( $any_untracked ) {
+                return true; // allow import if any variation is untracked
+            }
+            if ( empty( $tracked_ids ) ) {
+                return true; // nothing tracked to gate on
+            }
+
+            // Query Square for counts of tracked variations at this location
+            $result = wc_square()->get_api()->batch_retrieve_inventory_counts( array(
+                'catalog_object_ids' => $tracked_ids,
+                'location_ids'       => array( $location_id ),
+                'states'             => array( 'IN_STOCK' ),
+            ) );
+
+            if ( method_exists( $result, 'get_counts' ) ) {
+                foreach ( $result->get_counts() as $inventory_count ) {
+                    if ( (float) $inventory_count->getQuantity() > 0 ) {
+                        return true; // at least one tracked variation has stock
+                    }
+                }
+            }
+
+            return false; // tracked but none > 0
+        } catch ( \Throwable $e ) {
+            return true; // fail-open
+        }
+    }
 
 
 	/**

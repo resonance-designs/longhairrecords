@@ -3,7 +3,7 @@
 ## Task List
 - [X] Adjust servers PHP config to better handle large requests to make inventory adjustments and other bulk operations.
   - [X] Run through delete process again to test if these changes have any effect on performance.
-- [ ] Deploy child theme updates and custom square plugin updates.
+- [X] Deploy child theme updates and custom square plugin updates.
 - [ ] Configure the Square plugin (Woo → Settings → Square):
   - [ ] System of Record = Square
   - [ ] Match by SKU = ON

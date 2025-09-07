@@ -540,3 +540,19 @@ function figarts_divi_post_settings_save_details( $post_id, $post ){
 
 }
 add_action( 'save_post', 'figarts_divi_post_settings_save_details', 10, 2 );
+
+/**
+ * Restore custom archive header (title + description) via hook,
+ * without overriding archive-product.php.
+ */
+add_action( 'woocommerce_shop_loop_header', function() {
+    // Output the page title.
+    if ( apply_filters( 'woocommerce_show_page_title', true ) ) {
+        echo '<h1 class="woocommerce-products-header__title page-title">';
+        woocommerce_page_title();
+        echo '</h1>';
+    }
+
+    // Output archive description (taxonomy or shop page content).
+    do_action( 'woocommerce_archive_description' );
+}, 20 ); // Run after WooCommerce's default header (priority 10).

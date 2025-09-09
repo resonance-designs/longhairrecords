@@ -27,8 +27,9 @@
   - [ ] Confirm no duplicates in Woo.
   - [ ] Keep an eye on logs for a few days — you want to see one log per scheduled sync, not dozens.
 - [ ] Fix WooCommerce templates in current theme.
-- [ ] Figure out a way to only create image variations we actually need during import/sync.
 - [ ] Add template customizations to child theme via hooks in the child theme’s `functions.php` file to avoid having to update the template files in the parent theme when there are updates to the WooCommerce plugin.
+- [ ] Figure out a way to only create image variations we actually need during import/sync.
+- [ ] Figure out a way to set product to draft automatically if the product has no image included during import.
 - [ ] Get email sending functioning again on site for new orders, confirmation emails, etc.
   - [ ] Need to verify we have a valid AWS account with SES enabled.
   - [ ] Need to configure the WP Offload SES plugin with AWS credentials.

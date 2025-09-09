@@ -4,12 +4,12 @@
 - [X] Adjust servers PHP config to better handle large requests to make inventory adjustments and other bulk operations.
   - [X] Run through delete process again to test if these changes have any effect on performance.
 - [X] Deploy child theme updates and custom square plugin updates.
-- [ ] Configure the Square plugin (Woo → Settings → Square):
-  - [ ] System of Record = Square
-  - [ ] Match by SKU = ON
-  - [ ] Update existing products = Enabled
-  - [ ] Sync direction = Square → Woo only (at least for this first full import)
-  - [ ] If your version has it: Batch size / Throttle = 50–100 items per request
+- [X] Configure the Square plugin (Woo → Settings → Square):
+  - [X] System of Record = Square
+  - [X] Match by SKU = ON
+  - [X] Update existing products = Enabled
+  - [X] Sync direction = Square → Woo only (at least for this first full import)
+  - [X] If your version has it: Batch size / Throttle = 50–100 items per request
 - [ ] Pilot import
   - [ ] Run a manual sync for a small batch (e.g. 500 items).
   - [ ] Check Woo → Products → make sure:
@@ -27,6 +27,7 @@
   - [ ] Confirm no duplicates in Woo.
   - [ ] Keep an eye on logs for a few days — you want to see one log per scheduled sync, not dozens.
 - [ ] Fix WooCommerce templates in current theme.
+- [ ] Figure out a way to only create image variations we actually need during import/sync.
 - [ ] Add template customizations to child theme via hooks in the child theme’s `functions.php` file to avoid having to update the template files in the parent theme when there are updates to the WooCommerce plugin.
 - [ ] Get email sending functioning again on site for new orders, confirmation emails, etc.
   - [ ] Need to verify we have a valid AWS account with SES enabled.

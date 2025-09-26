@@ -9,8 +9,8 @@
   - [x] System of Record = Square
   - [x] Match by SKU = ON
   - [x] Update existing products = Enabled
-  - [x] Sync direction = Square → Woo only (at least for this first full import)
   - [x] If your version has it: Batch size / Throttle = 50–100 items per request
+  - [x] Sync direction = Square → Woo only (at least for this first full import)
 - [x] Pilot import
   - [x] Run a manual sync for a small batch (e.g. 500 items).
   - [x] Check Woo → Products → make sure:

@@ -1,42 +1,48 @@
 # Longhair Records — Ecommerce Site
 
 ## Task List
-- [X] Adjust servers PHP config to better handle large requests to make inventory adjustments and other bulk operations.
-  - [X] Run through delete process again to test if these changes have any effect on performance.
-- [X] Deploy child theme updates and custom square plugin updates.
-- [ ] Configure the Square plugin (Woo → Settings → Square):
-  - [ ] System of Record = Square
-  - [ ] Match by SKU = ON
-  - [ ] Update existing products = Enabled
-  - [ ] Sync direction = Square → Woo only (at least for this first full import)
-  - [ ] If your version has it: Batch size / Throttle = 50–100 items per request
-- [ ] Pilot import
-  - [ ] Run a manual sync for a small batch (e.g. 500 items).
-  - [ ] Check Woo → Products → make sure:
-    - [ ] Only one copy per SKU.
-    - [ ] Images imported.
-    - [ ] Stock values match Square.
-  - [ ] Check Woo → Status → Logs → square-…log:
-    - [ ] Should be 1 log file only for the run.
-    - [ ] Should not show SKU already exists.
-- [ ] If the pilot is successful, do a full import:
-  - [ ] Run sync on the full catalog.
-  - [ ] Monitor logs — you should see a single continuous square-… log growing large, not 10–15 new ones starting every few minutes.
-- [ ] Post-import checks
-  - [ ] Spot check 10–20 random items: SKU, stock, price, and image all match Square.
-  - [ ] Confirm no duplicates in Woo.
-  - [ ] Keep an eye on logs for a few days — you want to see one log per scheduled sync, not dozens.
+
+- [x] Adjust servers PHP config to better handle large requests to make inventory adjustments and other bulk operations.
+  - [x] Run through delete process again to test if these changes have any effect on performance.
+- [x] Deploy child theme updates and custom square plugin updates.
+- [x] Configure the Square plugin (Woo → Settings → Square):
+  - [x] System of Record = Square
+  - [x] Match by SKU = ON
+  - [x] Update existing products = Enabled
+  - [x] Sync direction = Square → Woo only (at least for this first full import)
+  - [x] If your version has it: Batch size / Throttle = 50–100 items per request
+- [x] Pilot import
+  - [x] Run a manual sync for a small batch (e.g. 500 items).
+  - [x] Check Woo → Products → make sure:
+    - [x] Only one copy per SKU.
+    - [x] Images imported.
+    - [x] Stock values match Square.
+  - [x] Check Woo → Status → Logs → square-…log:
+    - [x] Should be 1 log file only for the run.
+    - [x] Should not show SKU already exists.
+- [x] If the pilot is successful, do a full import:
+  - [x] Run sync on the full catalog.
+  - [x] Monitor logs — you should see a single continuous square-… log growing large, not 10–15 new ones starting every few minutes.
+- [x] Post-import checks
+  - [x] Spot check 10–20 random items: SKU, stock, price, and image all match Square.
+  - [x] Confirm no duplicates in Woo.
+  - [x] Keep an eye on logs for a few days — you want to see one log per scheduled sync, not dozens.
 - [ ] Fix WooCommerce templates in current theme.
 - [ ] Add template customizations to child theme via hooks in the child theme’s `functions.php` file to avoid having to update the template files in the parent theme when there are updates to the WooCommerce plugin.
-- [ ] Get email sending functioning again on site for new orders, confirmation emails, etc.
-  - [ ] Need to verify we have a valid AWS account with SES enabled.
-  - [ ] Need to configure the WP Offload SES plugin with AWS credentials.
-- [ ] Get the business email addresses/service on the Google Workspace platform.
-- [ ] Verify Cloudflare DNS is working correctly.
+- [x] Get email sending functioning again on site for new orders, confirmation emails, etc.
+  - [x] Need to verify we have a valid AWS account with SES enabled.
+  - [x] Need to configure the WP Offload SES plugin with AWS credentials.
+  - [x] Send test emails from Offload SES plugin.
+- [ ] Get the business email addresses/service on the Gmail interface.
+- [x] Verify Cloudflare DNS is working correctly.
 - [ ] Compile a list of what services are being provided by GoDaddy and BlueHost
 - [ ] Get a remote environment set up for sandboxing ecommerce solutions.
-- [ ] Remove Spotify/Soundcloud links
+- [x] Remove Spotify/Soundcloud links
 - [ ] Root out any payment gremlins that may be lurking around.
 - [ ] Set up Stripe as a backup payment processor.
   - [ ] Square and Stripe can work together, but not directly; they can be connected through third-party integration services like Zapier, Skyvia, and Albato to automate data synchronization and workflows between the two platforms.
   - [ ] Test Stripe integration.
+- [ ] Figure out how to get Smart Manager to save searches.
+- [x] Merge custom integration code into new version of Square plugin.
+- [x] Get HTTPS working properly on site.
+- [x] Fix broken categories box on frontend. Curerntly not showing "Records" or "7-Inch" categories.

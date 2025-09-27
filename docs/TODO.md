@@ -41,6 +41,7 @@
 - [x] Fix WooCommerce templates in current theme.
 - [x] Add template customizations to child theme via hooks in the child theme’s `functions.php` file to avoid having to update woocommerce template files when there are updates to the WooCommerce plugin. This is much better for long-term maintainability.
 - [x] Set search-bar filter text and id value dynamically based on current page/product.
+- [x] Update site icon.
 - [ ] Install and configure WP Offload Media Lite plugin to offload media uploads to Amazon S3.
   - [ ] Enable S3 storage in the AWS account.
   - [ ] Upload images to S3 using the WP Offload Media Lite plugin.

@@ -1,4 +1,6 @@
-# Longhair Records — Ecommerce Site
+# Longhair Records — Ecommerce Site (WordPress)
+
+##### Production
 
 ## Task List
 
@@ -27,15 +29,20 @@
   - [x] Spot check 10–20 random items: SKU, stock, price, and image all match Square.
   - [x] Confirm no duplicates in Woo.
   - [x] Keep an eye on logs for a few days — you want to see one log per scheduled sync, not dozens.
-- [ ] Fix WooCommerce templates in current theme.
-- [ ] Add template customizations to child theme via hooks in the child theme’s `functions.php` file to avoid having to update the template files in the parent theme when there are updates to the WooCommerce plugin.
+- [x] Fix WooCommerce templates in current theme.
+- [ ] Add template customizations to child theme via hooks in the child theme’s `functions.php` file to avoid having to update or even use woocommerce template files in the theme when there are updates to the WooCommerce plugin. This is much better for long-term maintainability.
 - [x] Get email sending functioning again on site for new orders, confirmation emails, etc.
   - [x] Need to verify we have a valid AWS account with SES enabled.
   - [x] Need to configure the WP Offload SES plugin with AWS credentials.
   - [x] Send test emails from Offload SES plugin.
+- [ ] Install and configure WP Offload Media Lite plugin to offload media uploads to Amazon S3.
+  - [ ] Enable S3 storage in the AWS account.
+  - [ ] Upload images to S3 using the WP Offload Media Lite plugin.
+  - [ ] Configure the plugin settings to automatically upload new media files to S3.
+  - [ ] Test uploading a new image and ensure it appears on the website after syncing with S3.
 - [ ] Get the business email addresses/service on the Gmail interface.
 - [x] Verify Cloudflare DNS is working correctly.
-- [ ] Compile a list of what services are being provided by GoDaddy and BlueHost
+- [ ] Compile a list of what services are being provided by what service providers/vendors.
 - [ ] Get a remote environment set up for sandboxing ecommerce solutions.
 - [x] Remove Spotify/Soundcloud links
 - [ ] Root out any payment gremlins that may be lurking around.
@@ -46,3 +53,6 @@
 - [x] Merge custom integration code into new version of Square plugin.
 - [x] Get HTTPS working properly on site.
 - [x] Fix broken categories box on frontend. Curerntly not showing "Records" or "7-Inch" categories.
+- [ ] Fix instagram feed widget. Currently it is showing that no user has been selected.
+- [x] Set search-bar filter text and id value dynamically based on current page/product.
+- [ ] Remove extraneous product categories.

@@ -1,7 +1,24 @@
 <?php
+/*
+ Theme Name:        LongHair Records
+ Theme URI:         https://www.longhairrecords.com
+ Description:       Divi child theme for the LongHair Records website.
+ Tags:              music, entertainment, e-commerce, woocommerce, responsive-design, custom-header, custom-menu, featured-images, threaded-comments, translation-ready, divi-child
+ Author:            Richard Bakos @ Resonance Designs
+ Author URI:        https://resonancedesigns.dev
+ Template:          Divi
+ Version:           2.0.0
+ Requires at least: 5.0
+ Tested up to:      6.7
+ Requires PHP:      7.4
+ License:           GNU General Public License v2 or later
+ License URI:       http://www.gnu.org/licenses/gpl-2.0.html
+ Text Domain:       longhairrecords
+*/
+
 /**
  * Set X-Frame Options
- * 
+ *
  */
 add_action( 'send_headers', 'send_frame_options_header', 10, 0 );
 
@@ -48,7 +65,7 @@ add_action( 'after_setup_theme', 'longhairrecords_add_woocommerce_support' );
 
 /**
  * Change PayPal Gateway Icon
- * 
+ *
  */
 add_filter( 'woocommerce_paypal_icon', 'lhr_replace_paypal_icon' );
 function lhr_replace_paypal_icon() {
@@ -56,8 +73,8 @@ function lhr_replace_paypal_icon() {
 }
 
 /**
- * Change the breadcrumb delimeter/separator 
- * 
+ * Change the breadcrumb delimeter/separator
+ *
  */
 add_filter( 'woocommerce_breadcrumb_defaults', 'wcc_change_breadcrumb_delimiter' );
 function wcc_change_breadcrumb_delimiter( $defaults ) {
@@ -126,7 +143,7 @@ if ( ! function_exists( 'et_load_core_options' ) ) {
             // Additional social icon settings
             if (isset($optionArray['id']) && $optionArray['id'] == 'divi_show_google_icon') {
                 // Spotify Icon
-                $showOptions = array( 
+                $showOptions = array(
                     "name" =>esc_html__( "Show Spotify Icon", $themename ),
                     "id" => $shortname."_show_spotify_icon",
                     "type" => "checkbox2",
@@ -134,7 +151,7 @@ if ( ! function_exists( 'et_load_core_options' ) ) {
                     "desc" =>esc_html__( "Here you can choose to display the Spotify Icon. ", $themename ) );
                 $newOptions[] = $showOptions;
                 // Youtube icon
-                $showOptions2 = array( 
+                $showOptions2 = array(
                     "name" =>esc_html__( "Show Youtube Icon", $themename ),
                     "id" => $shortname."_show_youtube_icon",
                     "type" => "checkbox2",
@@ -142,7 +159,7 @@ if ( ! function_exists( 'et_load_core_options' ) ) {
                     "desc" =>esc_html__( "Here you can choose to display the Youtube Icon. ", $themename ) );
                 $newOptions[] = $showOptions2;
                 // Soundcloud icon
-                $showOptions3 = array( 
+                $showOptions3 = array(
                     "name" =>esc_html__( "Show Soundcloud Icon", $themename ),
                     "id" => $shortname."_show_soundcloud_icon",
                     "type" => "checkbox2",
@@ -150,7 +167,7 @@ if ( ! function_exists( 'et_load_core_options' ) ) {
                     "desc" =>esc_html__( "Here you can choose to display the Soundcloud Icon. ", $themename ) );
                 $newOptions[] = $showOptions3;
                 // Google Play icon
-                $showOptions4 = array( 
+                $showOptions4 = array(
                     "name" =>esc_html__( "Show Google Play Icon", $themename ),
                     "id" => $shortname."_show_googleplay_icon",
                     "type" => "checkbox2",
@@ -158,7 +175,7 @@ if ( ! function_exists( 'et_load_core_options' ) ) {
                     "desc" =>esc_html__( "Here you can choose to display the Google Play Icon. ", $themename ) );
                 $newOptions[] = $showOptions4;
                 // iTunes icon
-                $showOptions5 = array( 
+                $showOptions5 = array(
                     "name" =>esc_html__( "Show iTunes Icon", $themename ),
                     "id" => $shortname."_show_itunes_icon",
                     "type" => "checkbox2",
@@ -166,7 +183,7 @@ if ( ! function_exists( 'et_load_core_options' ) ) {
                     "desc" =>esc_html__( "Here you can choose to display the iTunes Icon. ", $themename ) );
                 $newOptions[] = $showOptions5;
                 // iTunes Podcast icon
-                $showOptions6 = array( 
+                $showOptions6 = array(
                     "name" =>esc_html__( "Show iTunes Podcast Icon", $themename ),
                     "id" => $shortname."_show_itunes_podcast_icon",
                     "type" => "checkbox2",
@@ -174,7 +191,7 @@ if ( ! function_exists( 'et_load_core_options' ) ) {
                     "desc" =>esc_html__( "Here you can choose to display the iTunes Podcast Icon. ", $themename ) );
                 $newOptions[] = $showOptions6;
                 // Stitcher icon
-                $showOptions7 = array( 
+                $showOptions7 = array(
                     "name" =>esc_html__( "Show Stitcher Icon", $themename ),
                     "id" => $shortname."_show_stitcher_icon",
                     "type" => "checkbox2",
@@ -185,7 +202,7 @@ if ( ! function_exists( 'et_load_core_options' ) ) {
             // Additional social URL options
             if (isset($optionArray['id']) && $optionArray['id'] == 'divi_google_url') {
                 // Spotify URL
-                $urlOptions = array( 
+                $urlOptions = array(
                     "name" =>esc_html__( "Spotify Page Url", $themename ),
                     "id" => $shortname."_spotify_url",
                     "std" => "#",
@@ -194,7 +211,7 @@ if ( ! function_exists( 'et_load_core_options' ) ) {
                     "desc" =>esc_html__( "Enter the URL of your Spotify page. ", $themename ) );
                 $newOptions[] = $urlOptions;
                 // Youtube URL
-                $urlOptions2 = array( 
+                $urlOptions2 = array(
                     "name" =>esc_html__( "Youtube Url", $themename ),
                     "id" => $shortname."_youtube_url",
                     "std" => "#",
@@ -203,7 +220,7 @@ if ( ! function_exists( 'et_load_core_options' ) ) {
                     "desc" =>esc_html__( "Enter the URL of your Youtube Channel. ", $themename ) );
                 $newOptions[] = $urlOptions2;
                 // Soundcloud URL
-                $urlOptions3 = array( 
+                $urlOptions3 = array(
                     "name" =>esc_html__( "Soundcloud Url", $themename ),
                     "id" => $shortname."_soundcloud_url",
                     "std" => "#",
@@ -212,7 +229,7 @@ if ( ! function_exists( 'et_load_core_options' ) ) {
                     "desc" =>esc_html__( "Enter the URL of your Soundcloud page. ", $themename ) );
                 $newOptions[] = $urlOptions3;
                 // Google Play URL
-                $urlOptions4 = array( 
+                $urlOptions4 = array(
                     "name" =>esc_html__( "Google Play Url", $themename ),
                     "id" => $shortname."_googleplay_url",
                     "std" => "#",
@@ -221,7 +238,7 @@ if ( ! function_exists( 'et_load_core_options' ) ) {
                     "desc" =>esc_html__( "Enter the URL of your Google Play profile. ", $themename ) );
                 $newOptions[] = $urlOptions4;
                 // iTunes URL
-                $urlOptions5 = array( 
+                $urlOptions5 = array(
                     "name" =>esc_html__( "iTunes Url", $themename ),
                     "id" => $shortname."_itunes_url",
                     "std" => "#",
@@ -230,7 +247,7 @@ if ( ! function_exists( 'et_load_core_options' ) ) {
                     "desc" =>esc_html__( "Enter the URL of your iTunes page. ", $themename ) );
                 $newOptions[] = $urlOptions5;
                 // iTunes Podcast URL
-                $urlOptions6 = array( 
+                $urlOptions6 = array(
                     "name" =>esc_html__( "iTunes Podcast Url", $themename ),
                     "id" => $shortname."_itunes_podcast_url",
                     "std" => "#",
@@ -239,7 +256,7 @@ if ( ! function_exists( 'et_load_core_options' ) ) {
                     "desc" =>esc_html__( "Enter the URL of your iTunes podcast page. ", $themename ) );
                 $newOptions[] = $urlOptions6;
                 // Stitcher URL
-                $urlOptions7 = array( 
+                $urlOptions7 = array(
                     "name" =>esc_html__( "Stitcher Url", $themename ),
                     "id" => $shortname."_stitcher_url",
                     "std" => "#",
@@ -255,7 +272,7 @@ if ( ! function_exists( 'et_load_core_options' ) ) {
 
 /**
  * Custom MIME types
- * 
+ *
  */
 function my_custom_mime_types( $mimes ) {
     $mimes['svg'] = 'image/svg+xml';
@@ -271,7 +288,7 @@ add_filter('upload_mimes', 'my_custom_mime_types');
 
 /**
  * WooCommerce Square Sync Delay
- * 
+ *
  */
 function square_sync_delay( $data ) {
 	/* $postdate = '2020-02-23 18:57:33';
@@ -292,9 +309,9 @@ function square_sync_delay( $data ) {
 		)
 	); */
 
-	$data['status'] = 'future'; 
+	$data['status'] = 'future';
 	/* $current_date = current_time( 'mysql' );
-	$future_date = strtotime("+1 month", $current_date); 
+	$future_date = strtotime("+1 month", $current_date);
 	$date = date( 'Y-m-d H:i:s', current_time( 'timestamp', true ) ); */
 	$data['date'] = '2020-02-23 18:57:33';
 	return $data;
@@ -302,8 +319,113 @@ function square_sync_delay( $data ) {
 add_filter('woocommerce_square_create_product_data', 'square_sync_delay');
 
 /**
+ * Only import in-stock items (tracked > 0) or untracked (null) from Square.
+ */
+function lhr_square_import_only_instock( $data, $catalog_object, $job = null ) {
+    try {
+        if ( ! ( $catalog_object instanceof \Square\Models\CatalogObject ) || ! $catalog_object->getItemData() ) {
+            return $data;
+        }
+
+        $variations = $catalog_object->getItemData()->getVariations() ? $catalog_object->getItemData()->getVariations() : array();
+        if ( empty( $variations ) ) {
+            return $data;
+        }
+
+        $location_id   = wc_square()->get_settings_handler()->get_location_id();
+        $variation_ids = array();
+        $any_not_tracked = false;
+
+        foreach ( $variations as $variation ) {
+            if ( ! ( $variation instanceof \Square\Models\CatalogObject ) || ! $variation->getItemVariationData() ) {
+                continue;
+            }
+
+            // Respect location availability like the importer does.
+            if ( is_array( $variation->getAbsentAtLocationIds() ) && in_array( $location_id, $variation->getAbsentAtLocationIds(), true ) ) {
+                continue;
+            }
+            if ( ! $variation->getPresentAtAllLocations() && ( ! is_array( $variation->getPresentAtLocationIds() ) || ! in_array( $location_id, $variation->getPresentAtLocationIds(), true ) ) ) {
+                continue;
+            }
+
+            $track_inventory = $variation->getItemVariationData()->getTrackInventory();
+
+            // Location overrides can change tracking per location.
+            $overrides = $variation->getItemVariationData()->getLocationOverrides();
+            if ( is_array( $overrides ) && ! empty( $overrides ) ) {
+                foreach ( $overrides as $override ) {
+                    if ( $override->getLocationId() === $location_id && null !== $override->getTrackInventory() ) {
+                        $track_inventory = $override->getTrackInventory();
+                        break;
+                    }
+                }
+            }
+
+            if ( ! $track_inventory ) {
+                $any_not_tracked = true; // Allowed (null stock).
+            } else {
+                $variation_ids[] = $variation->getId();
+            }
+        }
+
+        // If any variation is untracked, allow import.
+        if ( $any_not_tracked ) {
+            return $data;
+        }
+
+        if ( ! empty( $variation_ids ) ) {
+            $result = wc_square()->get_api()->batch_retrieve_inventory_counts( array(
+                'catalog_object_ids' => $variation_ids,
+                'location_ids'       => array( $location_id ),
+                'states'             => array( 'IN_STOCK' ),
+            ) );
+
+            $has_in_stock = false;
+            if ( method_exists( $result, 'get_counts' ) ) {
+                foreach ( $result->get_counts() as $inventory_count ) {
+                    $qty = (float) $inventory_count->getQuantity();
+                    if ( $qty > 0 ) {
+                        $has_in_stock = true;
+                        break;
+                    }
+                }
+            }
+
+            // If all tracked variations are zero at this location, keep product as draft/hidden.
+            if ( ! $has_in_stock ) {
+                $data['status']             = 'draft';
+                $data['catalog_visibility'] = 'hidden';
+            }
+        }
+    } catch ( \Throwable $e ) {
+        // Fail open: don't block import in case of API errors.
+        return $data;
+    }
+
+    return $data;
+}
+add_filter( 'woocommerce_square_create_product_data', 'lhr_square_import_only_instock', 20, 3 );
+
+/**
+ * Set imported WooCommerce products with no image to Draft status.
+ *
+ * @param WC_Product $product The product object.
+ * @return WC_Product Modified product object.
+ */
+function custom_set_imported_products_to_draft_if_no_image( $product ) {
+    // Check if the product has a featured image (thumbnail).
+    if ( ! $product->get_image_id() ) {
+        // If no image, set the product status to 'draft'.
+        $product->set_status( 'draft' );
+    }
+    return $product;
+}
+add_filter( 'woocommerce_product_import_inserted_product_object', 'custom_set_imported_products_to_draft_if_no_image', 10, 1 );
+
+/**
  * Sidebar Customization
- * 
+ *
  */
 function et_single_settings_meta_box( $post ) {
 	$post_id = get_the_ID();
@@ -313,7 +435,7 @@ function et_single_settings_meta_box( $post ) {
 	$page_layout = get_post_meta( $post_id, '_et_pb_page_layout', true );
 
 	$side_nav = get_post_meta( $post_id, '_et_pb_side_nav', true );
-	
+
 	$selected_sidebar = get_post_meta( $post_id, '_et_pb_sidebar_figarts', true );
 
 	$project_nav = get_post_meta( $post_id, '_et_pb_project_nav', true );
@@ -426,7 +548,7 @@ function allsidebars() {
     global $wp_registered_sidebars;
     if ( !empty( $wp_registered_sidebars ) )
         return $wp_registered_sidebars;
-}  
+}
 add_action('init', 'allsidebars');
 
 function figarts_divi_post_settings_save_details( $post_id, $post ){
@@ -451,3 +573,19 @@ function figarts_divi_post_settings_save_details( $post_id, $post ){
 
 }
 add_action( 'save_post', 'figarts_divi_post_settings_save_details', 10, 2 );
+
+/**
+ * Restore custom archive header (title + description) via hook,
+ * without overriding archive-product.php.
+ */
+add_action( 'woocommerce_shop_loop_header', function() {
+    // Output the page title.
+    if ( apply_filters( 'woocommerce_show_page_title', true ) ) {
+        echo '<h1 class="woocommerce-products-header__title page-title">';
+        woocommerce_page_title();
+        echo '</h1>';
+    }
+
+    // Output archive description (taxonomy or shop page content).
+    do_action( 'woocommerce_archive_description' );
+}, 20 ); // Run after WooCommerce's default header (priority 10).

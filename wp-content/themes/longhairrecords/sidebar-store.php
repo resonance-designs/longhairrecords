@@ -7,9 +7,9 @@
  Author:            Richard Bakos @ Resonance Designs
  Author URI:        https://resonancedesigns.dev
  Template:          Divi
- Version:           2.0.0
+ Version:           2.0.1
  Requires at least: 5.0
- Tested up to:      6.7
+ Tested up to:      6.8.2
  Requires PHP:      7.4
  License:           GNU General Public License v2 or later
  License URI:       http://www.gnu.org/licenses/gpl-2.0.html

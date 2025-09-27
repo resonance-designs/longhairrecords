@@ -2,7 +2,9 @@
 
 ##### Production
 
-## Current Plugins
+## Plugin Audit
+
+### Current Plugins
 Use :heavy_check_mark: to mark the plugin as reviewed. Use :white_square_button: to mark plugins that have not been reviewed yet.
 
 | **Plugin Name**                                                       | **Activated** | **Recommendation** | **Notes**                                                                                             |          **Reviewed** |
@@ -14,7 +16,6 @@ Use :heavy_check_mark: to mark the plugin as reviewed. Use :white_square_button:
 | Companion Auto Update                                                 |      Yes      |        Keep        | Critical to site functionality. <br/>Keeps select plugins up-to-date.                                 |    :heavy_check_mark: |
 | Cookie Notice & Compliance for GDPR / CCPA                            |      Yes      |        Keep        | Critical to site functionality. <br/>Legally necessary for GDPR and CCPA.                             |    :heavy_check_mark: |
 | Custom Fonts                                                          |      Yes      |     Undecided      | Not sure if this is needed. <br/>Divi may be handling this. Need to investigate.                      | :white_square_button: |
-| Dashboard Widgets Suite                                               |      Yes      |       Remove       | Not critical to site functionality. <br/>Not being used. Nothing of any real use.                     |    :heavy_check_mark: |
 | ELEX EasyPost Shipping Plugin (UPS, FedEx, Canada Post & USPS)        |      Yes      |        Keep        | Critical to site functionality. <br/>Handles shipping calculation and label printing.                 |    :heavy_check_mark: |
 | Email Log                                                             |      Yes      |        Keep        | Not critical but useful. <br/>Logs all outgoing email from the site.                                  |    :heavy_check_mark: |
 | Export Media Library                                                  |      Yes      |        Keep        | Not critical but useful. <br/>Exports all media files to a zip file.                                  |    :heavy_check_mark: |
@@ -47,7 +48,7 @@ Use :heavy_check_mark: to mark the plugin as reviewed. Use :white_square_button:
 | YITH WooCommerce Wishlist                                             |      Yes      |     Undecided      | Not sure if this is being used or is necessary. <br/>Need to investigate.                             | :white_square_button: |
 | Yoast SEO                                                             |      Yes      |     Undecided      | Not critical but useful. <br/>Improved SEO for site, pages, posts, products, etc.                     | :white_square_button: |
 
-## Previous Plugins
+### Previous Plugins
 These are the plugins that were installed on the previous plugin review cycle.
 
 | **Plugin Name**                                                       | **Activated** | **Recommendation** | **Notes**                                                                                             |          **Reviewed** |

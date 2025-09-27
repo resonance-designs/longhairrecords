@@ -54,9 +54,14 @@
   - [ ] Square and Stripe can work together, but not directly; they can be connected through third-party integration services like Zapier, Skyvia, and Albato to automate data synchronization and workflows between the two platforms.
   - [ ] Test Stripe integration.
 - [ ] Figure out how to get Smart Manager to save searches.
-- [ ] Fix instagram feed widget. Currently it is showing that no user has been selected.
+- [ ] Fix instagram feed widget. Currently, it is showing that no user has been selected.
 - [ ] Remove extraneous product categories.
 - [ ] Clean up WordPress plugins.
+- [ ] Add some events to the timely calendar.
+- [ ] The sidebar is rendering incorrectly on single-product pages. It's rendering in the footer instead of to the right of the main content.
+- [ ] Optimize server and WordPress configuration for optimal speed and performance.
+- [x] Clear out email logs.
+- [x] Create cron job to clear out extraneous image files every day at midnight.
 - [ ] Create documentation for the project team.
   - [ ] Finish Server Maintenance documentation for the project team.
   - [ ] Create GitHub documentation for the project team.

@@ -63,6 +63,8 @@
 - [ ] Optimize server and WordPress configuration for optimal speed and performance.
 - [x] Clear out email logs.
 - [x] Create cron job to clear out extraneous image files every day at midnight.
+- [ ] Move over to Google Site Kit to handle Google Analytics, Tag Manager, Ads, etc.
+- [ ] Customize the emails that are sent out from the site.
 - [ ] Create documentation for the project team.
   - [ ] Finish Server Maintenance documentation for the project team.
   - [ ] Create GitHub documentation for the project team.

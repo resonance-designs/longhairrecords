@@ -7,7 +7,7 @@
  Author:            Richard Bakos @ Resonance Designs
  Author URI:        https://resonancedesigns.dev
  Template:          Divi
- Version:           2.0.1
+ Version:           2.0.2
  Requires at least: 5.0
  Tested up to:      6.8.2
  Requires PHP:      7.4
@@ -44,6 +44,26 @@ function longhairrecords__divi_child_enque_styles() {
     );
 }
 add_action( 'wp_enqueue_scripts', 'longhairrecords__divi_child_enque_styles' );
+
+// Enques admin styles after SB Instagram plugin loads its own style
+function my_child_admin_styles() {
+    wp_enqueue_style( 'my-child-admin-style', get_stylesheet_directory_uri() . '/admin-styles.css', array( 'sb_instagram_admin_css' ), wp_get_theme()->get( 'Version' ) );
+}
+add_action( 'admin_enqueue_scripts', 'my_child_admin_styles' );
+
+/**
+ * Enqueue custom admin JS
+ */
+function longhairrecords__enqueue_admin_custom_js($hook) {
+    wp_enqueue_script(
+        'admin-custom-scripts',
+        get_stylesheet_directory_uri() . '/js/admin-custom.js',
+        array('jquery'),
+        filemtime(get_stylesheet_directory() . '/js/admin-custom.js'), // better cache-busting
+        true
+    );
+}
+add_action('admin_enqueue_scripts', 'longhairrecords__enqueue_admin_custom_js');
 
 /**
  * Enques JS

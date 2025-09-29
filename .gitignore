@@ -1,35 +1,33 @@
 
-plugins/woocommerce/
-
-backup/
-
-docs/Things_Ive_Done.txt
-
-wp-content/plugins/woocommerce/
-
-wp-content/themes/Divi/
-
-wp-content/themes/Divi.zip
-
 wp-config.php
-
-docs/Credentials.md
-
-wp-content/plugins/advanced-woo-search-pro/
 
 .zencoder/
 
 .idea/
 
+docs/Credentials.md
+
+docs/Things_Ive_Done.txt
+
+backup/
+
+wp-content/plugins/advanced-woo-search-pro/
+
+wp-content/plugins/woocommerce/
+
 wp-content/plugins/instagram-feed/
 
+wp-content/themes/Divi/
+
+wp-content/themes/Divi.zip
+
 # Ignore everything in woocommerce-square
-wp-content/plugins/woocommerce-square/*
+wp-content/plugins/woocommerce-square/**
 
-# But keep these specific files
-!wp-content/plugins/woocommerce-square/includes/sync/Product_Import.old.php
-!wp-content/plugins/woocommerce-square/includes/sync/Product_Import.php
-
-# Also need to keep their parent directories so Git can reach them
+# Allow the path down to sync
 !wp-content/plugins/woocommerce-square/includes/
 !wp-content/plugins/woocommerce-square/includes/sync/
+
+# Allow only these two files
+!wp-content/plugins/woocommerce-square/includes/sync/Product_Import.old.php
+!wp-content/plugins/woocommerce-square/includes/sync/Product_Import.php

@@ -1,33 +1,34 @@
-
+# Ignore configs
 wp-config.php
 
-.zencoder/
+.zencoder/**
 
-.idea/
+.idea/**
 
+# Ignore sensitive documents
 docs/Credentials.md
 
 docs/Things_Ive_Done.txt
 
-backup/
+# Ignore the temporary backup folder
+backup/**
 
-wp-content/plugins/advanced-woo-search-pro/
-
-wp-content/plugins/woocommerce/
-
-wp-content/plugins/instagram-feed/
-
-wp-content/themes/Divi/
+# Ignore Divi theme and zip file
+wp-content/themes/Divi/**
 
 wp-content/themes/Divi.zip
 
-# Ignore everything in woocommerce-square
+# Ignore the plugins
+wp-content/plugins/advanced-woo-search-pro/**
+
+wp-content/plugins/woocommerce/**
+
+wp-content/plugins/instagram-feed/**
+
 wp-content/plugins/woocommerce-square/**
 
-# Allow the path down to sync
+# With the exception of the modification to the woo-commerce-square plugin
 !wp-content/plugins/woocommerce-square/includes/
 !wp-content/plugins/woocommerce-square/includes/sync/
-
-# Allow only these two files
 !wp-content/plugins/woocommerce-square/includes/sync/Product_Import.old.php
 !wp-content/plugins/woocommerce-square/includes/sync/Product_Import.php

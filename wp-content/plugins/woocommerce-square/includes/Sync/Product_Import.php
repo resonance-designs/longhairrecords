@@ -8,7 +8,7 @@
  * http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License v3.0 or later
  * If you did not receive a copy of the license and are unable to
  * obtain it through the world-wide-web, please send an email
- * to license@woocommerce.com so we can send you a copy immediately. Test
+ * to license@woocommerce.com so we can send you a copy immediately.
  *
  * DISCLAIMER
  *

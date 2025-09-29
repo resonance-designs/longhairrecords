@@ -42,29 +42,31 @@
 - [x] Add template customizations to child theme via hooks in the child theme’s `functions.php` file to avoid having to update woocommerce template files when there are updates to the WooCommerce plugin. This is much better for long-term maintainability.
 - [x] Set search-bar filter text and id value dynamically based on current page/product.
 - [x] Update site icon.
+- [x] Clear out email logs.
+- [x] Create cron job to clear out extraneous image files every day at midnight.
+- [ ] Clean up WordPress plugins.
+- [x] Organize the admin menu.
+- [ ] The sidebar is rendering incorrectly on single-product pages. It's rendering in the footer instead of to the right of the main content.
+- [ ] Optimize server and WordPress configuration for optimal speed and performance.
+- [ ] Update the design of the Newsletter signup confirmation page.
+- [ ] Move over to Google Site Kit to handle Google Analytics, Tag Manager, Ads, etc.
 - [ ] Install and configure WP Offload Media Lite plugin to offload media uploads to Amazon S3.
   - [ ] Enable S3 storage in the AWS account.
   - [ ] Upload images to S3 using the WP Offload Media Lite plugin.
   - [ ] Configure the plugin settings to automatically upload new media files to S3.
   - [ ] Test uploading a new image and ensure it appears on the website after syncing with S3.
 - [ ] Get the business email addresses/service on the Gmail interface.
+- [ ] Figure out how to get Smart Manager to save searches.
+- [ ] Fix instagram feed widget. Currently, it is showing that no user has been selected.
+- [ ] Add some events to the timely calendar.
+- [ ] Customize the emails that are sent out from the site.
+- [ ] Remove extraneous product categories.
 - [ ] Compile a list of what services are being provided by what service providers/vendors.
 - [ ] Get a remote environment set up for sandboxing ecommerce solutions.
 - [ ] Root out any payment gremlins that may be lurking around.
 - [ ] Set up Stripe as a backup payment processor.
   - [ ] Square and Stripe can work together, but not directly; they can be connected through third-party integration services like Zapier, Skyvia, and Albato to automate data synchronization and workflows between the two platforms.
   - [ ] Test Stripe integration.
-- [ ] Figure out how to get Smart Manager to save searches.
-- [ ] Fix instagram feed widget. Currently, it is showing that no user has been selected.
-- [ ] Remove extraneous product categories.
-- [ ] Clean up WordPress plugins.
-- [ ] Add some events to the timely calendar.
-- [ ] The sidebar is rendering incorrectly on single-product pages. It's rendering in the footer instead of to the right of the main content.
-- [ ] Optimize server and WordPress configuration for optimal speed and performance.
-- [x] Clear out email logs.
-- [x] Create cron job to clear out extraneous image files every day at midnight.
-- [ ] Move over to Google Site Kit to handle Google Analytics, Tag Manager, Ads, etc.
-- [ ] Customize the emails that are sent out from the site.
 - [ ] Create documentation for the project team.
   - [ ] Finish Server Maintenance documentation for the project team.
   - [ ] Create GitHub documentation for the project team.

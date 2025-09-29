@@ -22,3 +22,14 @@ wp-content/plugins/advanced-woo-search-pro/
 .idea/
 
 wp-content/plugins/instagram-feed/
+
+# Ignore everything in woocommerce-square
+wp-content/plugins/woocommerce-square/*
+
+# But keep these specific files
+!wp-content/plugins/woocommerce-square/includes/sync/Product_Import.old.php
+!wp-content/plugins/woocommerce-square/includes/sync/Product_Import.php
+
+# Also need to keep their parent directories so Git can reach them
+!wp-content/plugins/woocommerce-square/includes/
+!wp-content/plugins/woocommerce-square/includes/sync/

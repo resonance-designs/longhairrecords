@@ -90,7 +90,11 @@
     content: "▸";
     position: absolute;
     right: 8px;
-    transition: transform 0.2s ease;
+    -webkit-transition: transform 0.3s ease;
+    -moz-transition: transform 0.3s ease;
+    -ms-transition: transform 0.3s ease;
+    -o-transition: transform 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 #adminmenu .wp-submenu .lhr-collapsible-header.lhr-open > a:after {
@@ -99,6 +103,10 @@
     -ms-transform: rotate(90deg);
     -o-transform: rotate(90deg);
     transform: rotate(90deg);
+}
+
+#adminmenu .wp-submenu .lhr-collapsible-header:hover > a {
+    background-color: rgba(247, 146, 30, 0.1);
 }
 
 #adminmenu a[href="admin.php?page=sb-instagram-feed"] {
@@ -141,4 +149,16 @@
 
 #adminmenu .wp-not-current-submenu .wp-submenu {
     min-width: 200px;
+}
+
+/* Small screen adjustments */
+@media screen and (max-width: 782px) {
+    #adminmenu .wp-submenu ul.lhr-submenu-group {
+        max-height: none !important; /* let it expand naturally */
+        opacity: 1 !important;
+    }
+
+    #adminmenu .wp-submenu .lhr-collapsible-header > a:after {
+        display: none; /* hide caret */
+    }
 }

@@ -33,7 +33,7 @@
 - [x] Verify Cloudflare DNS is working correctly.
 - [x] Get HTTPS working properly.
 - [x] Merge custom integration code into new version of Square plugin.
-- [x] Fix broken categories box on frontend. Curerntly not showing "Records" or "7-Inch" categories.
+- [x] Fix broken categories box on frontend. Currently not showing "Records" or "7-Inch" categories.
 - [x] Get email sending functioning again on site for new orders, confirmation emails, etc.
   - [x] Need to verify we have a valid AWS account with SES enabled.
   - [x] Need to configure the WP Offload SES plugin with AWS credentials.
@@ -44,10 +44,17 @@
 - [x] Update site icon.
 - [x] Clear out email logs.
 - [x] Create cron job to clear out extraneous image files every day at midnight.
-- [ ] Clean up WordPress plugins.
+- [x] Clean up WordPress plugins.
 - [x] Organize the admin menu.
+- [x] Change message on maintenance page.
+- [x] Fix instagram feed widget. Currently, it is showing that no user has been selected.
+- [ ] Look into potential replacements for ELEX EasyPost Shipping Plugin.
+- [ ] Change wp-admin to lhr-admin for improved security.
+- [ ] Fix search functionality. Does not seem to be working at all.
+- [ ] Remove store annoucement popup.
 - [ ] The sidebar is rendering incorrectly on single-product pages. It's rendering in the footer instead of to the right of the main content.
 - [ ] Optimize server and WordPress configuration for optimal speed and performance.
+  - [ ] Install and configure PHP opcache.
 - [ ] Update the design of the Newsletter signup confirmation page.
 - [ ] Move over to Google Site Kit to handle Google Analytics, Tag Manager, Ads, etc.
 - [ ] Install and configure WP Offload Media Lite plugin to offload media uploads to Amazon S3.
@@ -57,7 +64,6 @@
   - [ ] Test uploading a new image and ensure it appears on the website after syncing with S3.
 - [ ] Get the business email addresses/service on the Gmail interface.
 - [ ] Figure out how to get Smart Manager to save searches.
-- [ ] Fix instagram feed widget. Currently, it is showing that no user has been selected.
 - [ ] Add some events to the timely calendar.
 - [ ] Customize the emails that are sent out from the site.
 - [ ] Remove extraneous product categories.

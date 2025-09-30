@@ -48,20 +48,23 @@
 - [x] Organize the admin menu.
 - [x] Change message on maintenance page.
 - [x] Fix instagram feed widget. Currently, it is showing that no user has been selected.
+- [ ] The sidebar is rendering incorrectly on single-product pages. It's rendering in the footer instead of to the right of the main content.
+- [ ] Remove store annoucement popup.
+- [ ] Fix search functionality. Does not seem to be working at all.
 - [ ] Look into potential replacements for ELEX EasyPost Shipping Plugin.
 - [ ] Change wp-admin to lhr-admin for improved security.
-- [ ] Fix search functionality. Does not seem to be working at all.
-- [ ] Remove store annoucement popup.
-- [ ] The sidebar is rendering incorrectly on single-product pages. It's rendering in the footer instead of to the right of the main content.
-- [ ] Optimize server and WordPress configuration for optimal speed and performance.
-  - [ ] Install and configure PHP opcache.
-- [ ] Update the design of the Newsletter signup confirmation page.
 - [ ] Move over to Google Site Kit to handle Google Analytics, Tag Manager, Ads, etc.
-- [ ] Install and configure WP Offload Media Lite plugin to offload media uploads to Amazon S3.
-  - [ ] Enable S3 storage in the AWS account.
-  - [ ] Upload images to S3 using the WP Offload Media Lite plugin.
-  - [ ] Configure the plugin settings to automatically upload new media files to S3.
-  - [ ] Test uploading a new image and ensure it appears on the website after syncing with S3.
+- [ ] Optimize server and WordPress configuration for optimal speed and performance.
+  - [x] Install and configure opcache PHP module.
+  - [x] Imstall imagick PHP module.
+  - [x] Install APCu PHP module.
+  - [x] Install libsodium PHP modules.
+  - [ ] Install and configure WP Offload Media Lite plugin to offload media uploads to Amazon S3.
+    - [ ] Enable S3 storage in the AWS account.
+    - [ ] Upload images to S3 using the WP Offload Media Lite plugin.
+    - [ ] Configure the plugin settings to automatically upload new media files to S3.
+    - [ ] Test uploading a new image and ensure it appears on the website after syncing with S3.
+- [ ] Update the design of the Newsletter signup confirmation page.
 - [ ] Get the business email addresses/service on the Gmail interface.
 - [ ] Figure out how to get Smart Manager to save searches.
 - [ ] Add some events to the timely calendar.

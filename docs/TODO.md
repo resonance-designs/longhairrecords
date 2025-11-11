@@ -49,9 +49,9 @@
 - [x] Change message on maintenance page.
 - [x] Fix instagram feed widget. Currently, it is showing that no user has been selected.
 - [ ] The sidebar is rendering incorrectly on single-product pages. It's rendering in the footer instead of to the right of the main content.
-- [ ] Remove store annoucement popup.
+- [x] Remove store annoucement popup.
 - [ ] Fix search functionality. Does not seem to be working at all.
-- [ ] Look into potential replacements for ELEX EasyPost Shipping Plugin.
+- [x] Look into potential replacements for ELEX EasyPost Shipping Plugin.
 - [ ] Change wp-admin to lhr-admin for improved security.
 - [ ] Move over to Google Site Kit to handle Google Analytics, Tag Manager, Ads, etc.
 - [ ] Optimize server and WordPress configuration for optimal speed and performance.

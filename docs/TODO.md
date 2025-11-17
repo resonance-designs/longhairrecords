@@ -48,10 +48,10 @@
 - [x] Organize the admin menu.
 - [x] Change message on maintenance page.
 - [x] Fix instagram feed widget. Currently, it is showing that no user has been selected.
-- [ ] The sidebar is rendering incorrectly on single-product pages. It's rendering in the footer instead of to the right of the main content.
-- [ ] Remove store annoucement popup.
-- [ ] Fix search functionality. Does not seem to be working at all.
-- [ ] Look into potential replacements for ELEX EasyPost Shipping Plugin.
+- [x] The sidebar is rendering incorrectly on single-product pages. It's rendering in the footer instead of to the right of the main content.
+- [x] Remove store annoucement popup.
+- [x] Fix search functionality. Does not seem to be working at all.
+- [x] Look into potential replacements for ELEX EasyPost Shipping Plugin.
 - [ ] Change wp-admin to lhr-admin for improved security.
 - [ ] Move over to Google Site Kit to handle Google Analytics, Tag Manager, Ads, etc.
 - [ ] Optimize server and WordPress configuration for optimal speed and performance.
@@ -64,7 +64,15 @@
     - [ ] Upload images to S3 using the WP Offload Media Lite plugin.
     - [ ] Configure the plugin settings to automatically upload new media files to S3.
     - [ ] Test uploading a new image and ensure it appears on the website after syncing with S3.
-- [ ] Update the design of the Newsletter signup confirmation page.
+- [ ] Update page designs
+  - [ ] Newsletter signup confirmation page.
+  - [ ] Single Product page.
+  - [ ] Search Results page.
+    - [ ] Add search bar to search results page.
+    - [ ] Remove duplicate "Search Results" header on search results page.
+  - [ ] Wish List page.
+  - [ ] Registration page.
+  - [ ] Login page.
 - [ ] Get the business email addresses/service on the Gmail interface.
 - [ ] Figure out how to get Smart Manager to save searches.
 - [ ] Add some events to the timely calendar.

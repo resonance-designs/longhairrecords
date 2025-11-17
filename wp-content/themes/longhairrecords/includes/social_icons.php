@@ -7,7 +7,7 @@
  Author:            Richard Bakos @ Resonance Designs
  Author URI:        https://resonancedesigns.dev
  Template:          Divi
- Version:           2.0.3
+ Version:           2.0.4
  Requires at least: 5.0
  Tested up to:      6.8.2
  Requires PHP:      7.4

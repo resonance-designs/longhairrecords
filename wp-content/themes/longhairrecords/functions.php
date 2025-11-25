@@ -95,48 +95,40 @@ function woo_new_product_tab( $tabs ) {
 		'priority' => 5,
 		'callback' => 'woo_new_product_tab_content'
 	);
-
 	return $tabs;
 }
 
 function woo_new_product_tab_content() {
-	global $product; // REQUIRED
-
+    // Get Product Details
+	global $product;
 	if ( ! $product ) {
 		echo '<p>No product found.</p>';
 		return;
 	}
-
+    // Product Summary
 	echo '<h2>Summary</h2>';
-
     // YITH Wishlist Button
-    
-        echo '<div class="summary-wishlist">';
-        echo do_shortcode( '[yith_wcwl_add_to_wishlist]' );
-        echo '</div>';
-    
-
-	// --- PRICE ---
+    echo '<div class="summary-wishlist">';
+    echo do_shortcode( '[yith_wcwl_add_to_wishlist]' );
+    echo '</div>';
+	// Price
 	$price_html = $product->get_price_html();
     $price_output = $price_html ? $price_html : esc_html__( 'N/A', 'woocommerce' );
     echo '<p class="price_wrapper"><strong>' . esc_html__( 'Price: ', 'woocommerce' ) . '</strong> ' . $price_output . '</p>';
-
-	// --- SKU ---
+	// SKU
 	if ( wc_product_sku_enabled() ) {
 		$sku = $product->get_sku();
         $sku_output = $sku ? $sku : esc_html__( 'N/A', 'woocommerce' );
 		echo '<p class="sku_wrapper"><strong>' . esc_html__( 'SKU: ', 'woocommerce' ) . '</strong><span class="woocommerce-SKU-value">' . $sku_output . '</span></p>';
 	}
-
-	// --- CATEGORIES ---
+	// Categories
 	echo wc_get_product_category_list(
 		$product->get_id(),
 		', ',
 		'<p class="posted_in"><strong>' . _n( 'Category:', 'Categories:', count( $product->get_category_ids() ), 'woocommerce' ) . '</strong> ',
 		'</p>'
 	);
-
-	// --- TAGS ---
+	// Tags
 	echo wc_get_product_tag_list(
 		$product->get_id(),
 		', ',
@@ -146,6 +138,13 @@ function woo_new_product_tab_content() {
     do_action( 'woocommerce_product_meta_end' );
 }
 
+/**
+ * Reindex Advanced Woo Search index when products are synced/imported via Square
+ *
+ */
+add_action( 'wc_square_products_synced', function( $product_ids ) {
+    do_action( 'aws_reindex_product', $product_ids );
+} );
 
 /**
  * Change PayPal Gateway Icon

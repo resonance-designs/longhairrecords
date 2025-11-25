@@ -1,20 +1,22 @@
 <?php
-/*
- Theme Name:        LongHair Records
- Theme URI:         https://www.longhairrecords.com
- Description:       Divi child theme for the LongHair Records website.
- Tags:              music, entertainment, e-commerce, woocommerce, responsive-design, custom-header, custom-menu, featured-images, threaded-comments, translation-ready, divi-child
- Author:            Richard Bakos @ Resonance Designs
- Author URI:        https://resonancedesigns.dev
- Template:          Divi
- Version:           2.0.3
- Requires at least: 5.0
- Tested up to:      6.8.2
- Requires PHP:      7.4
- License:           GNU General Public License v2 or later
- License URI:       http://www.gnu.org/licenses/gpl-2.0.html
- Text Domain:       longhairrecords
-*/
+/**
+ * Theme functions and definitions
+ *
+ * @author      Richard Bakos @ Resonance Designs <info@resonancedesigns.dev>
+ * @copyright   Copyright © 2019-2025 Richard Bakos @ Resonance Designs
+ * @link        https://resonancedesigns.dev Author's Website
+ * @link        https://github.com/resonance-designs Author's GitHub Profile
+ * @link        https://github.com/resonance-designs/longhairrecords GitHub Repository
+ * @link        https://longhairrecords.com LongHair Records
+ * @package     LongHairRecords\Templates
+ * @version     2.1.1
+ * @since       2.1.1
+ */
+
+// Exit if accessed directly
+if (!defined('ABSPATH')) {
+    exit;
+}
 
 /**
  * Set X-Frame Options
@@ -82,6 +84,67 @@ function longhairrecords_add_woocommerce_support() {
 	add_theme_support( 'woocommerce' );
 }
 add_action( 'after_setup_theme', 'longhairrecords_add_woocommerce_support' );
+
+/**
+ * Add a custom product data tab
+ */
+add_filter( 'woocommerce_product_tabs', 'woo_new_product_tab' );
+function woo_new_product_tab( $tabs ) {
+	$tabs['summary_tab'] = array(
+		'title'    => __( 'Summary', 'woocommerce' ),
+		'priority' => 5,
+		'callback' => 'woo_new_product_tab_content'
+	);
+	return $tabs;
+}
+
+function woo_new_product_tab_content() {
+    // Get Product Details
+	global $product;
+	if ( ! $product ) {
+		echo '<p>No product found.</p>';
+		return;
+	}
+    // Product Summary
+	echo '<h2>Summary</h2>';
+    // YITH Wishlist Button
+    echo '<div class="summary-wishlist">';
+    echo do_shortcode( '[yith_wcwl_add_to_wishlist]' );
+    echo '</div>';
+	// Price
+	$price_html = $product->get_price_html();
+    $price_output = $price_html ? $price_html : esc_html__( 'N/A', 'woocommerce' );
+    echo '<p class="price_wrapper"><strong>' . esc_html__( 'Price: ', 'woocommerce' ) . '</strong> ' . $price_output . '</p>';
+	// SKU
+	if ( wc_product_sku_enabled() ) {
+		$sku = $product->get_sku();
+        $sku_output = $sku ? $sku : esc_html__( 'N/A', 'woocommerce' );
+		echo '<p class="sku_wrapper"><strong>' . esc_html__( 'SKU: ', 'woocommerce' ) . '</strong><span class="woocommerce-SKU-value">' . $sku_output . '</span></p>';
+	}
+	// Categories
+	echo wc_get_product_category_list(
+		$product->get_id(),
+		', ',
+		'<p class="posted_in"><strong>' . _n( 'Category:', 'Categories:', count( $product->get_category_ids() ), 'woocommerce' ) . '</strong> ',
+		'</p>'
+	);
+	// Tags
+	echo wc_get_product_tag_list(
+		$product->get_id(),
+		', ',
+		'<p class="tagged_as"><strong>' . _n( 'Tag:', 'Tags:', count( $product->get_tag_ids() ), 'woocommerce' ) . '</strong> ',
+		'</p>'
+	);
+    do_action( 'woocommerce_product_meta_end' );
+}
+
+/**
+ * Reindex Advanced Woo Search index when products are synced/imported via Square
+ *
+ */
+add_action( 'wc_square_products_synced', function( $product_ids ) {
+    do_action( 'aws_reindex_product', $product_ids );
+} );
 
 /**
  * Change PayPal Gateway Icon
@@ -572,9 +635,9 @@ add_action( 'save_post', 'figarts_divi_post_settings_save_details', 10, 2 );
 add_action( 'woocommerce_shop_loop_header', function() {
     // Output the page title.
     if ( apply_filters( 'woocommerce_show_page_title', true ) ) {
-        echo '<h1 class="woocommerce-products-header__title page-title">';
-        woocommerce_page_title();
-        echo '</h1>';
+        echo '<div class="woocommerce-products-header__title page-title">';
+        aws_get_search_form( true, array( 'id' => 2 ) );
+        echo '</div>';
     }
 
     // Output archive description (taxonomy or shop page content).
@@ -594,16 +657,21 @@ function lhr_add_search_form_to_single_product() {
 add_action('woocommerce_before_main_content', 'lhr_add_search_form_to_single_product', 25);
 
 /**
- * Add sidebar to WooCommerce single product pages
- * Uses the woocommerce_sidebar action hook for proper integration
+ * Remove WooCommerce product tabs after summary (moved to /woocommerce/content-single-product.php template)
  */
-function lhr_add_product_sidebar() {
-    static $sidebar_rendered = false;
-
-    if (is_product() && !$sidebar_rendered) {
-        // Include the entire sidebar-store.php file
-        get_template_part('sidebar', 'store');
-        $sidebar_rendered = true;
-    }
+function remove_woo_product_tabs_after_summary() {
+    // Remove product data tabs
+    remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
 }
-add_action('woocommerce_sidebar', 'lhr_add_product_sidebar');
+add_action( 'init', 'remove_woo_product_tabs_after_summary' ); // Using 'init' or 'wp_loaded' ensures the actions are loaded
+
+/**
+ * Change number of related products output
+ */
+add_filter( 'woocommerce_output_related_products_args', 'custom_related_products_args', 20 );
+function custom_related_products_args( $args ) {
+    $args['posts_per_page'] = 8; // Number of related products
+    $args['columns']        = 4; // Number of columns
+    return $args;
+}
+

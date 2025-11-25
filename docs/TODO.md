@@ -52,18 +52,29 @@
 - [x] Remove store annoucement popup.
 - [x] Fix search functionality. Does not seem to be working at all.
 - [x] Look into potential replacements for ELEX EasyPost Shipping Plugin.
-- [ ] Change wp-admin to lhr-admin for improved security.
-- [ ] Move over to Google Site Kit to handle Google Analytics, Tag Manager, Ads, etc.
-- [ ] Optimize server and WordPress configuration for optimal speed and performance.
+- [x] Change wp-login to lhr-admis for improved security.
+- [x] Move over to Google Site Kit to handle Google Analytics, Tag Manager, Ads, etc.
+- [x] Optimize server and WordPress configuration for optimal speed and performance.
   - [x] Install and configure opcache PHP module.
-  - [x] Imstall imagick PHP module.
+  - [x] Install imagick PHP module.
   - [x] Install APCu PHP module.
   - [x] Install libsodium PHP modules.
-  - [ ] Install and configure WP Offload Media Lite plugin to offload media uploads to Amazon S3.
-    - [ ] Enable S3 storage in the AWS account.
-    - [ ] Upload images to S3 using the WP Offload Media Lite plugin.
-    - [ ] Configure the plugin settings to automatically upload new media files to S3.
-    - [ ] Test uploading a new image and ensure it appears on the website after syncing with S3.
+  - [x] Install and configure Codirun R2 & CDN plugin to offload static files and media uploads to Cloudflare R2.
+    - [x] Enable R2 object storage in the Cloudflare dashboard.
+    - [x] Install and activate Codirun plugin.
+    - [x] Create a Cloudflare R2 bucket.
+    - [x] Upload static files to R2 bucket using the Codirun plugin.
+    - [x] Upload media files to R2 bucket using the Codirun plugin.
+    - [x] Configure the plugin settings to automatically upload new media files to R2.
+    - [x] Test uploading a new image and ensure it appears on the website after syncing with R2.
+  - [x] Install and configure Redis caching.
+    - [x] Install redis-server package.
+    - [x] Install php-redis extension.
+    - [x] Install and configure "Redis Object Cache" plugin (Till Krüss)
+    - [x] Test Redis caching by clearing the cache and checking if the site loads faster.
+  - [x] Install and configure Litespeed Web Server (LWS) caching.
+- [x] Install Composer
+- [x] Install WP CLI
 - [ ] Update page designs
   - [ ] Newsletter signup confirmation page.
   - [ ] Single Product page.

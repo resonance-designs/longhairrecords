@@ -2,7 +2,7 @@
 
 A custom WordPress + WooCommerce codebase for the Longhair Records online store. This repo contains the primary theme and the Square integration plugin. Note: WooCommerce itself is not tracked in this repository (install it separately from WordPress.org).
 
-**Current Version**: v2.0.3
+**Current Version**: v2.1.1
 
 ## Repository layout
 

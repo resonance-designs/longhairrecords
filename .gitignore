@@ -32,3 +32,10 @@ wp-content/plugins/woocommerce-square/**
 !wp-content/plugins/woocommerce-square/includes/sync/
 !wp-content/plugins/woocommerce-square/includes/sync/Product_Import.old.php
 !wp-content/plugins/woocommerce-square/includes/sync/Product_Import.php
+
+# Snyk Security Extension - AI Rules (auto-generated)
+.github\instructions\snyk_rules.instructions.md
+
+.htaccess
+
+.htaccess.bk

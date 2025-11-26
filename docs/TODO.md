@@ -54,7 +54,7 @@
 - [x] Look into potential replacements for ELEX EasyPost Shipping Plugin.
 - [x] Change wp-login to lhr-admis for improved security.
 - [x] Move over to Google Site Kit to handle Google Analytics, Tag Manager, Ads, etc.
-- [x] Optimize server and WordPress configuration for optimal speed and performance.
+- [ ] Optimize server and WordPress configuration for optimal speed and performance.
   - [x] Install and configure opcache PHP module.
   - [x] Install imagick PHP module.
   - [x] Install APCu PHP module.
@@ -63,8 +63,8 @@
     - [x] Enable R2 object storage in the Cloudflare dashboard.
     - [x] Install and activate Codirun plugin.
     - [x] Create a Cloudflare R2 bucket.
-    - [x] Upload static files to R2 bucket using the Codirun plugin.
-    - [x] Upload media files to R2 bucket using the Codirun plugin.
+    - [x] Upload static files (CSS, JS, fonts, etc) to R2 bucket using the Codirun plugin.
+    - [x] Upload media files (images, videos, audio, PDFs, etc) to R2 bucket using the Codirun plugin.
     - [x] Configure the plugin settings to automatically upload new media files to R2.
     - [x] Test uploading a new image and ensure it appears on the website after syncing with R2.
   - [x] Install and configure Redis caching.
@@ -73,8 +73,14 @@
     - [x] Install and configure "Redis Object Cache" plugin (Till Krüss)
     - [x] Test Redis caching by clearing the cache and checking if the site loads faster.
   - [x] Install and configure Litespeed Web Server (LWS) caching.
+  - [ ] Identify and prune unused autoload options.
 - [x] Install Composer
 - [x] Install WP CLI
+- [x] Add Gulp build pipeline for CSS & JS concatenation and minification.
+- [ ] Fix issues on mobile devices.
+  - [x] Broken product images on mobile devices. Probably related to the recent change to use Cloudflare R2 for static assets.
+  - [ ] Sidebar on product template is rendered incorrectly.
+  - [ ] Product buttons are stacked right on top of each other. Needs spacing and centering added.
 - [ ] Update page designs
   - [ ] Newsletter signup confirmation page.
   - [ ] Single Product page.

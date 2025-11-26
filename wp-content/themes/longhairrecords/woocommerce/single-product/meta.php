@@ -15,6 +15,22 @@
  * @version     9.7.0
  */
 
+/**
+ * Template customization:
+ * - Remove product meta from single products
+ * - Add custom meta data for each product type
+ *
+ * @author      Richard Bakos @ Resonance Designs <info@resonancedesigns.dev>
+ * @copyright   Copyright © 2019-2025 Richard Bakos @ Resonance Designs
+ * @link        https://resonancedesigns.dev Author's Website
+ * @link        https://github.com/resonance-designs Author's GitHub Profile
+ * @link        https://github.com/resonance-designs/longhairrecords GitHub Repository
+ * @link        https://longhairrecords.com LongHair Records
+ * @package     LongHairRecords\Templates
+ * @version     2.1.2
+ * @since       2.1.1
+ */
+
 use Automattic\WooCommerce\Enums\ProductType;
 
 if ( ! defined( 'ABSPATH' ) ) {

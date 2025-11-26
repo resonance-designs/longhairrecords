@@ -15,6 +15,23 @@
  * @version 3.6.0
  */
 
+/**
+ * Template customization:
+ * - Removed tabs from bottom of page
+ * - Added tabs into summary section
+ * - Moved summary info into it's own tab
+ *
+ * @author      Richard Bakos @ Resonance Designs <info@resonancedesigns.dev>
+ * @copyright   Copyright © 2019-2025 Richard Bakos @ Resonance Designs
+ * @link        https://resonancedesigns.dev Author's Website
+ * @link        https://github.com/resonance-designs Author's GitHub Profile
+ * @link        https://github.com/resonance-designs/longhairrecords GitHub Repository
+ * @link        https://longhairrecords.com LongHair Records
+ * @package     LongHairRecords\Templates
+ * @version     2.1.2
+ * @since       2.1.1
+ */
+
 defined( 'ABSPATH' ) || exit;
 
 global $product;

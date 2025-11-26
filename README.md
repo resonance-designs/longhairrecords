@@ -1,18 +1,17 @@
 # Longhair Records — Ecommerce Website
 
-A custom WordPress + WooCommerce codebase for the Longhair Records online store. This repo contains the primary theme and the Square integration plugin. Note: WooCommerce itself is not tracked in this repository (install it separately from WordPress.org).
+A custom WordPress + WooCommerce codebase for the Longhair Records online store. This repo contains the primary theme and the customizations for the Square integration plugin.
 
-**Current Version**: v2.1.1
+**Current Version**: v2.1.2
 
 ## Repository layout
 
 - **themes/longhairrecords**: Primary site theme (templates, CSS/JS, includes)
-- **plugins/woocommerce-square**: Square integration plugin (included)
+- **plugins/woocommerce-square**: Square integration plugin customizations
 - **docs/**: Operational notes and runbooks
   - **docs/TODO.md**: Current implementation and operations checklist
   - **docs/Sync_Fix_Gameplan.md**: Sync troubleshooting plan
   - **docs/Server_Maintenance.md**: Server and environment maintenance notes
-- **WooCommerce plugin (not tracked)**: Install via WP Admin → Plugins → Add New → "WooCommerce"
 
 ## Screenshots / Preview
 
@@ -42,25 +41,31 @@ This repo mirrors a typical `wp-content` structure. Use one of the approaches be
 2. Replace the site’s `wp-content` with this repo (or clone this repo into that path).
 3. In WP Admin → Plugins:
    - Install and activate WooCommerce (from WordPress.org).
-   - Activate WooCommerce Square (from this repo).
-4. In WP Admin → Appearance → Themes, activate the `Longhair Records` theme.
-5. Visit Settings → Permalinks and click Save to flush rewrite rules.
+   - Install and activate WooCommerce Square (from WordPress.org).
+   - Replace the "Product_Import.php" file with the included copy under "plugins/woocommerce-square/includes/classes/Product_Import.php
+4. In WP Admin → Appearance → Themes, install the `Divi` theme. The Longhair Records child theme depends on Divi.
+5. In WP Admin → Appearance → Themes, activate the `Longhair Records` theme.
+6. Visit Settings → Permalinks and click Save to flush rewrite rules.
 
 ### Option B: Copy into an existing site
 
 1. Copy `themes/longhairrecords` → `<your-site>/wp-content/themes/`.
-2. Copy `plugins/woocommerce-square` → `<your-site>/wp-content/plugins/`.
-3. In WP Admin → Plugins: install and activate WooCommerce (from WordPress.org).
-4. Activate the theme and Square plugin via WP Admin and flush permalinks.
+2. In WP Admin → Plugins: install and activate WooCommerce (from WordPress.org).
+3. In WP Admin → Plugins: install and activate WooCommerce Square (from WordPress.org).
+4. Copy/overwrite `plugins/woocommerce-square/includes/classes/Product_Import.php` → `<your-site>/wp-content/plugins/woocommerce-square/includes/classes/Product_Import.php`.
+5. In WP Admin → Appearance → Themes, install the `Divi` theme. The Longhair Records child theme depends on Divi.
+6. In WP Admin → Appearance → Themes, activate the `Longhair Records` theme.
 
 ### Option C: LocalWP (recommended for speed)
 
 1. Create a new site in LocalWP.
 2. Open the site folder → `app/public/wp-content/`.
-3. Copy:
-   - `themes/longhairrecords` → `wp-content/themes/`
-   - `plugins/woocommerce-square` → `wp-content/plugins/`
-4. Start the site, then in WP Admin → Plugins: install and activate WooCommerce. Activate the Square plugin and theme.
+3. Copy `themes/longhairrecords` → `wp-content/themes/`
+4. Start the site, then in WP Admin → Plugins: install and activate WooCommerce.
+5. In WP Admin → Plugins: install and activate WooCommerce Square.
+6. Copy/overwrite `plugins/woocommerce-square/includes/classes/Product_Import.php` → `wp-content/plugins/woocommerce-square/includes/classes/Product_Import.php`.
+7. In WP Admin → Appearance → Themes, install the `Divi` theme. The Longhair Records child theme depends on Divi.
+8. In WP Admin → Appearance → Themes, activate the `Longhair Records` theme.
 
 ### Option D: Docker (docker-compose)
 

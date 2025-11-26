@@ -26,7 +26,7 @@
  * @link        https://github.com/longhairrecords GitHub Repository
  * @link        https://longhairrecords.com LongHair Records
  * @package     LongHairRecords\Templates
- * @version     2.1.1
+ * @version     2.1.2
  * @since       2.1.1
  */
 

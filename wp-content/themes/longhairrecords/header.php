@@ -1,20 +1,19 @@
 <?php
-/*
- Theme Name:        LongHair Records
- Theme URI:         https://www.longhairrecords.com
- Description:       Divi child theme for the LongHair Records website.
- Tags:              music, entertainment, e-commerce, woocommerce, responsive-design, custom-header, custom-menu, featured-images, threaded-comments, translation-ready, divi-child
- Author:            Richard Bakos @ Resonance Designs
- Author URI:        https://resonancedesigns.dev
- Template:          Divi
- Version:           2.0.4
- Requires at least: 5.0
- Tested up to:      6.8.2
- Requires PHP:      7.4
- License:           GNU General Public License v2 or later
- License URI:       http://www.gnu.org/licenses/gpl-2.0.html
- Text Domain:       longhairrecords
-*/
+/**
+ * Header Template
+ *
+ * Custom Header template.
+ *
+ * @author      Richard Bakos @ Resonance Designs <info@resonancedesigns.dev>
+ * @copyright   Copyright © 2019-2025 Richard Bakos @ Resonance Designs
+ * @link        https://resonancedesigns.dev Author's Website
+ * @link        https://github.com/resonance-designs Author's GitHub Profile
+ * @link        https://github.com/resonance-designs/longhairrecords GitHub Repository
+ * @link        https://longhairrecords.com LongHair Records
+ * @package     LongHairRecords\Templates
+ * @version     2.1.2
+ * @since       2.1.1
+ */
 ?>
 
 <!DOCTYPE html>

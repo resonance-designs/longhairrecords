@@ -6,7 +6,7 @@
  Author:            Richard Bakos @ Resonance Designs
  Author URI:        https://resonancedesigns.dev
  Template:          Divi
- Version:           2.0.4
+ Version:           2.1.2
  Requires at least: 5.0
  Tested up to:      6.8.2
  Requires PHP:      7.4
@@ -70,7 +70,7 @@
 	75%{
 		background:rgba(166,163,158,.7);
 	}
-    
+
     100%{
 		background:rgba(176,202,201,.7);
 	}
@@ -92,7 +92,7 @@
 	75%{
 		background:rgba(166,163,158,.7);
 	}
-    
+
     100%{
 		background:rgba(176,202,201,.7);
 	}
@@ -113,12 +113,11 @@
 	75%{
 		background:rgba(166,163,158,.7);
 	}
-    
+
     100%{
 		background:rgba(176,202,201,.7);
 	}
 }
-
 
 /*Person Module*/
 .ds-person-module img {
@@ -181,7 +180,7 @@
     width: 280px;
     margin: -50px 0 0 -325px;
     }
-    
+
     .ds-person-module {
     margin-bottom: 50%;
     }

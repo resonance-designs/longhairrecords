@@ -9,7 +9,7 @@
  * @link        https://github.com/resonance-designs/longhairrecords GitHub Repository
  * @link        https://longhairrecords.com LongHair Records
  * @package     LongHairRecords\Templates
- * @version     2.1.1
+ * @version     2.1.2
  * @since       2.1.1
  */
 
@@ -84,6 +84,93 @@ function longhairrecords_add_woocommerce_support() {
 	add_theme_support( 'woocommerce' );
 }
 add_action( 'after_setup_theme', 'longhairrecords_add_woocommerce_support' );
+
+/**
+ * Restrict WordPress/WooCommerce to only specific image sizes.
+ * Keeps ONLY: 100x100, 150x150, 300x300, 450x600, 600x600
+ */
+add_filter('intermediate_image_sizes_advanced', function($sizes) {
+
+    // Allowed sizes (WordPress internal names, not dimensions)
+    $allowed = [
+        'thumbnail',        // usually 150x150
+        'woocommerce_thumbnail', // usually 300x300
+        'woocommerce_gallery_thumbnail', // 100x100 default
+        'woocommerce_single', // depends, but we will override below
+    ];
+
+    // REMOVE all automatically generated sizes EXCEPT the above
+    foreach ($sizes as $size => $data) {
+        if (!in_array($size, $allowed)) {
+            unset($sizes[$size]);
+        }
+    }
+
+    return $sizes;
+});
+
+/**
+ * Explicitly define the ONLY product image sizes we want WooCommerce to use.
+ */
+add_action('after_setup_theme', function() {
+
+    // Remove WC default sizes (to avoid unexpected regeneration)
+    remove_image_size('woocommerce_single');
+
+    // Add only the sizes YOU want
+    add_image_size('woocommerce_thumbnail', 300, 300, true);  // main grid thumbnail
+    add_image_size('woocommerce_gallery_thumbnail', 100, 100, true);
+    add_image_size('wc-150', 150, 150, true);
+    add_image_size('wc-450x600', 450, 600, true);
+    add_image_size('wc-600', 600, 600, true);
+
+    // Override WC Single Product Image (optional)
+    add_image_size('woocommerce_single', 600, 600, true);
+});
+
+/**
+ * Remove unwanted sizes from srcset output.
+ */
+add_filter('wp_calculate_image_srcset', function($sources) {
+
+    $allowed_widths = [100, 150, 300, 450, 600];
+
+    foreach ($sources as $width => $source) {
+        if (!in_array($width, $allowed_widths)) {
+            unset($sources[$width]);
+        }
+    }
+
+    return $sources;
+});
+
+/**
+ * Force WooCommerce to ONLY use your specific image sizes.
+ * Overrides WC DB settings so it cannot request 768/1024/1080/1280/etc.
+ */
+add_filter('woocommerce_get_image_size_thumbnail', function() {
+    return array(
+        'width'  => 300,
+        'height' => 300,
+        'crop'   => 1,
+    );
+});
+
+add_filter('woocommerce_get_image_size_single', function() {
+    return array(
+        'width'  => 600,
+        'height' => 600,
+        'crop'   => 1,
+    );
+});
+
+add_filter('woocommerce_get_image_size_gallery_thumbnail', function() {
+    return array(
+        'width'  => 100,
+        'height' => 100,
+        'crop'   => 1,
+    );
+});
 
 /**
  * Add a custom product data tab
